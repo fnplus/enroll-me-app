@@ -271,7 +271,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("1064007003546-4d9812meoqv2k9b2vgjiq0gmllumjvjn.apps.googleusercontent.com")//)
+            .requestIdToken(<Enter Google Sign In Token Here>)//)
             .requestEmail()
             .build();
 
