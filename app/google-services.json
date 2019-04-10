@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "1064007003546",
+    "firebase_url": "https://fnplus-rle-mvp.firebaseio.com",
+    "project_id": "fnplus-rle-mvp",
+    "storage_bucket": "fnplus-rle-mvp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064007003546:android:00f5795c610f0b1c",
+        "android_client_info": {
+          "package_name": "tech.fnplus.enrollme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064007003546-miv4so5oacd1spepoa1inpnv35nnr6o8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.fnplus.enrollme",
+            "certificate_hash": "c6072a82e7ea8502f7ec8c2a325c3c3dc6720319"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmOhjBGOoPT9V2Gbu7imlvI8Z05m6UALY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064007003546-4d9812meoqv2k9b2vgjiq0gmllumjvjn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

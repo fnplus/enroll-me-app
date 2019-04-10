@@ -3,4 +3,21 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_text">Somekindof developer based in someplace. Looking for somekind of opportunity.</string>
+    <string name="mobile_text">Mobile Number</string>
+    <string name="select_date">Date of Birth</string>
+    <string name="gender_text">Choose your gender</string>
+    <string name="portfolio_text">Personal Website/ Github</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="city">City</string>
+    <string name="territory">Province / Territory</string>
+    <string name="address">Address</string>
+    <string name="inspiration">What drives you to work on that technology?</string>
+    <string name="technologies">What technologies are you looking to work on in near future?</string>
+    <string name="why_join">Why do you want to join fnplus?</string>
+    <string name="project">Tell us about your project(s), if any</string>
+    <string name="register_btn">Register</string>
 </resources>

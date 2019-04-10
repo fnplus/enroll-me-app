@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.aviran.cookiebar2:cookiebar2:1.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/cookiebar2-1.1.0.aar/5768fa5b33440f17f98ed042a3973da2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/cookiebar2-1.1.0.aar/5768fa5b33440f17f98ed042a3973da2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.aviran.cookiebar2/cookiebar2/1.1.0/2b5720fe86e7f2011d0cdf59edd576f847d023de/cookiebar2-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
