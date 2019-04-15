@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_login);
         registerDetailsLayout = findViewById(R.id.registerDetails_layout);
+        mobileNumberET=findViewById(R.id.mobile_text);
         registerLayout = findViewById(R.id.register_layout);
         userEmailTV = findViewById(R.id.userEmail_TV);
         avatarImage = findViewById(R.id.imageButton);
@@ -241,15 +242,51 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     private void addDataToDB() {
         Map<String, Object> user = new HashMap<>();
+        Map<String, Object> addressDB = new HashMap<>();
 
-        user.put("mobileNumber", mobileNumber);
-        user.put("dateOfBirth", date);
+        //Map<String, Object> domain = new HashMap<>();
+
+/*
+address:
+    city
+    state
+dob
+domains:
+    d0
+    d1
+email
+geekID
+geekscore
+gender
+linkedin
+name:
+    fname
+    lname
+newsletter
+phone
+portfolio
+projects:
+    p0:
+        link:
+        title:
+
+
+ */
+        addressDB.put("city",city);
+        addressDB.put("state",territory);
+        user.put("domains", q3);
+        user.put("gender", genderTV);
+        user.put("linkedin", linkedIn);
+        user.put("phone", mobileNumber);
+        user.put("portfolio", q2);
+        user.put("projects", q4);
+        user.put("dob", date);
         user.put("email", userEmail);
         user.put("verified", "false");
         user.put("userId", mUser.getUid());
-        user.put("displayName", displayName);
+        user.put("name", displayName);
         user.put("displayImage", userImage.toString());
-
+        user.put("address",addressDB);
         db.collection("users").document(mUser.getUid())
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -268,6 +305,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     }
                 });
     }
+
+
 
 
     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -354,7 +393,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                             Log.d(TAG, "signInWithCredential:success");
                             boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
                             mUser = mAuth.getCurrentUser();
-                            if (isNew || !checkUser()) {
+                            if (isNew || !  checkUser()) {
                                 registerLayout.setVisibility(View.GONE);
                                 registerDetailsLayout.setVisibility(View.VISIBLE);
                                 userEmailTV.setText(userEmail);
