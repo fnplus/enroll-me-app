@@ -310,7 +310,7 @@ projects:
 
 
     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(<Enter Google Sign In Token Here>)//)
+            .requestIdToken("1064007003546-4d9812meoqv2k9b2vgjiq0gmllumjvjn.apps.googleusercontent.com")//)
             .requestEmail()
             .build();
 
@@ -356,7 +356,7 @@ projects:
     }
 
     private boolean checkUser() {
-        final boolean[] isNew = {false};
+        final boolean[] exists = {false};
         db.collection("users")
                 .document(mAuth.getCurrentUser().getUid())
                 .get()
@@ -364,20 +364,17 @@ projects:
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            if (task.getResult().exists()) {
-
-                                isNew[0] = false;
-
+                            DocumentSnapshot document= task.getResult();
+                            if (document.exists()) {
+                                exists[0] = true;
+                            } else {
+                                Log.d(TAG, "Document does not exist!");
                             }
-
-
-                        } else {
-                            isNew[0] = true;
                         }
                     }
                 });
-
-        return isNew[0];
+        Toast.makeText(getApplicationContext(),String.valueOf(exists[0]),Toast.LENGTH_LONG).show();
+        return exists[0];
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
@@ -393,7 +390,10 @@ projects:
                             Log.d(TAG, "signInWithCredential:success");
                             boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
                             mUser = mAuth.getCurrentUser();
-                            if (isNew || !  checkUser()) {
+                            if(checkUser()){
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            }
+                            else if (isNew || !  checkUser()) {
                                 registerLayout.setVisibility(View.GONE);
                                 registerDetailsLayout.setVisibility(View.VISIBLE);
                                 userEmailTV.setText(userEmail);
@@ -401,8 +401,6 @@ projects:
                                 Picasso.get()
                                         .load(userImage)
                                         .into(avatarImage);
-                            } else if (checkUser()) {
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             }
 
                             progressdialog.dismiss();
