@@ -4,9 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +19,10 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -82,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_login);
         registerDetailsLayout = findViewById(R.id.registerDetails_layout);
-        mobileNumberET=findViewById(R.id.mobile_text);
+        mobileNumberET = findViewById(R.id.mobile_text);
         registerLayout = findViewById(R.id.register_layout);
         userEmailTV = findViewById(R.id.userEmail_TV);
         avatarImage = findViewById(R.id.imageButton);
