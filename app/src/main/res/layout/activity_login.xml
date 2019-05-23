@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.RegisterActivity">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/register_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,7 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:id="@+id/registerDetails_layout"
@@ -54,7 +54,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="195dp">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -230,7 +230,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/mobile_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -259,7 +259,7 @@
                         android:textColorHint="@color/secondaryText" />
 
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:id="@+id/frameLayout"
@@ -306,7 +306,7 @@
 
                 </LinearLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/gender_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -334,9 +334,9 @@
                         android:textColorHint="@color/secondaryText"
 
                         />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/portfolio_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -364,9 +364,9 @@
                         android:textColorHint="@color/secondaryText"
 
                         />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/linkedin_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -391,9 +391,9 @@
                         android:hint="@string/linkedin"
                         android:textColor="@color/primaryText"
                         android:textColorHint="@color/secondaryText" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/city_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -418,9 +418,9 @@
                         android:hint="@string/city"
                         android:textColor="@color/primaryText"
                         android:textColorHint="@color/secondaryText" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/territory_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -445,9 +445,9 @@
                         android:hint="@string/territory"
                         android:textColor="@color/primaryText"
                         android:textColorHint="@color/secondaryText" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/address_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -476,7 +476,7 @@
                         android:textColorHint="@color/secondaryText" />
 
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -521,10 +521,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/technologies_text" />
 
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
