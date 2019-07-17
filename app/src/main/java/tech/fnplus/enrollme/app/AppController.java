@@ -2,8 +2,6 @@ package tech.fnplus.enrollme.app;
 
 import android.app.Application;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
 import com.crashlytics.android.Crashlytics;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -16,16 +14,11 @@ public class AppController extends Application {
 
     private static AppController mInstance;
 
-    static {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-    }
-
-    private FirebaseAnalytics mFirebaseAnalytics;
-
     public static synchronized AppController getInstance() {
         return mInstance;
     }
 
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate() {
