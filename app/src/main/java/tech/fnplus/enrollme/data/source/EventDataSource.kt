@@ -11,7 +11,7 @@ interface EventDataSource {
         fun onDataNotAvailable(error: String)
     }
 
-    fun getEvents(callback: LoadEventsCallback) : List<Event>
+    fun getEvents(callback: LoadEventsCallback): List<Event>
 
     fun saveEvents(events: List<Event>)
 }

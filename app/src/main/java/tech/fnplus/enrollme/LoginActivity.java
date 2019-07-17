@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +40,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 
 import org.aviran.cookiebar2.CookieBar;
@@ -76,7 +74,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     Uri userImage;
     ImageButton closeButtonDetails;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +104,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         closeButtonDetails = findViewById(R.id.close_btn_registerDetails);
         cardView = findViewById(R.id.frameLayout);
 
-
         final Spinner gender = findViewById(R.id.gender_text);
 
         // Spinner click listener
@@ -130,12 +126,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         // attaching data adapter to spinner
         gender.setAdapter(dataAdapter);
 
-
         signInButton.setSize(SignInButton.SIZE_WIDE);
 
-
         progressdialog = new ProgressDialog(LoginActivity.this);
-
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,7 +227,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         genderTV = parent.getItemAtPosition(position).toString();
 
-
     }
 
     @Override
@@ -274,8 +266,8 @@ projects:
 
 
  */
-        addressDB.put("city",city);
-        addressDB.put("state",territory);
+        addressDB.put("city", city);
+        addressDB.put("state", territory);
         user.put("domains", q3);
         user.put("gender", genderTV);
         user.put("linkedin", linkedIn);
@@ -288,7 +280,7 @@ projects:
         user.put("userId", mUser.getUid());
         user.put("name", displayName);
         user.put("displayImage", userImage.toString());
-        user.put("address",addressDB);
+        user.put("address", addressDB);
         db.collection("users").document(mUser.getUid())
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -307,8 +299,6 @@ projects:
                     }
                 });
     }
-
-
 
 
     GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -366,7 +356,7 @@ projects:
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            DocumentSnapshot document= task.getResult();
+                            DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                 exists[0] = true;
                             } else {
@@ -375,7 +365,7 @@ projects:
                         }
                     }
                 });
-        Toast.makeText(getApplicationContext(),String.valueOf(exists[0]),Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), String.valueOf(exists[0]), Toast.LENGTH_LONG).show();
         return exists[0];
     }
 
@@ -392,10 +382,9 @@ projects:
                             Log.d(TAG, "signInWithCredential:success");
                             boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
                             mUser = mAuth.getCurrentUser();
-                            if(checkUser()){
+                            if (checkUser()) {
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            }
-                            else if (isNew || !  checkUser()) {
+                            } else if (isNew || !checkUser()) {
                                 registerLayout.setVisibility(View.GONE);
                                 registerDetailsLayout.setVisibility(View.VISIBLE);
                                 userEmailTV.setText(userEmail);

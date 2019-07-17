@@ -1,18 +1,18 @@
 package tech.fnplus.enrollme.data.source.remote
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import tech.fnplus.enrollme.data.Event
-import com.facebook.stetho.okhttp3.StethoInterceptor
 
 
 interface APIServices {
 
     @GET("geek-meetup-chennai")
-     fun loadEvents(): Call<List<Event>>
+    fun loadEvents(): Call<List<Event>>
 }
 
 object RetrofitClient {

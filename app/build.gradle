@@ -8,54 +8,114 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources false
+            versionNameSuffix '-DEBUG'
+            debuggable true
+        }
+        release {
+            debuggable false
+            useProguard true
+            minifyEnabled true
+            shrinkResources false
+            versionNameSuffix '-RELEASE'
+            // signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'LICENSE.txt'
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+ext {
+    firebaseLibVersion1600 = "16.0.0"
+    firebaseLibVersion1601 = "16.0.1"
+    firebaseLibVersion1602 = "16.0.2"
+    firebaseLibVersion1700 = "17.0.0"
+    firebaseLibVersion1701 = "17.0.1"
+    firebaseLibVersion1704 = "17.0.4"
+    firebaseLibVersion1710 = "17.1.0"
+    firebaseUIVersion = "4.0.1"
+    firebaseCrashlyticsVersion = '2.10.1'
+    supportLibVersion = "27.1.1"
+    espressoVersion = "3.0.1"
+    junitVersion = "4.12"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
-    implementation 'pub.devrel:easypermissions:3.0.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    // Analytics
+    implementation "com.google.firebase:firebase-core:${firebaseLibVersion1700}"
+
+    // Auth
+    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
-
     implementation "org.jetbrains.anko:anko-common:0.10.8"
+
+    // CRASH
+    implementation("com.crashlytics.sdk.android:crashlytics:${firebaseCrashlyticsVersion}") {
+        transitive = true
+    }
+
+    // Database
+    implementation 'com.google.firebase:firebase-firestore:20.1.0'
 
     // Cookie Bar
     implementation 'org.aviran.cookiebar2:cookiebar2:1.1.0'
+
     // Picasso Library
     implementation 'com.squareup.picasso:picasso:2.71828'
+
     // Circular Image View
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-    // Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.9'
-    implementation 'com.google.firebase:firebase-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-firestore:19.0.2'
+
     // Barcode Library
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
     implementation 'com.google.zxing:core:3.3.3'
+
+    // Location
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // Permissions
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
     // RetroFit
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    // Support
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
