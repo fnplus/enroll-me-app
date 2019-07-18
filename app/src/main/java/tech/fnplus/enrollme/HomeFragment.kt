@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import tech.fnplus.enrollme.data.Event
+import tech.fnplus.enrollme.data.EventValue
 import tech.fnplus.enrollme.data.source.remote.APIServices
 import tech.fnplus.enrollme.data.source.remote.RetrofitClient
 
@@ -32,10 +33,10 @@ class HomeFragment : Fragment() {
         val apiServices = retrofit.create(APIServices::class.java)
         val call = apiServices.loadEvents()
 
-        call.enqueue(object : Callback<List<Event>> {
+        call.enqueue(object : Callback<HashMap<String, EventValue>> {
             override fun onResponse(
-                    call: Call<List<Event>>,
-                    response: Response<List<Event>>
+                    call: Call<HashMap<String, EventValue>>,
+                    response: Response<HashMap<String, EventValue>>
             ) {
                 val result = response.body()
                 if (result != null) {
@@ -45,7 +46,7 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<List<Event>>, t: Throwable) {
+            override fun onFailure(call: Call<HashMap<String, EventValue>>, t: Throwable) {
                 t.printStackTrace()
                 Log.i("Result", "Fail")
             }

@@ -59,6 +59,10 @@ ext {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.1"
+
     // Analytics
     implementation "com.google.firebase:firebase-core:${firebaseLibVersion1700}"
 
@@ -72,7 +76,7 @@ dependencies {
 
     implementation "org.jetbrains.anko:anko-common:0.10.8"
 
-    // CRASH
+    // Crash
     implementation("com.crashlytics.sdk.android:crashlytics:${firebaseCrashlyticsVersion}") {
         transitive = true
     }
@@ -113,9 +117,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-android-extensions'
+// Google
+apply plugin: 'com.google.gms.google-services'
