@@ -17,6 +17,8 @@ android {
             shrinkResources false
             versionNameSuffix '-DEBUG'
             debuggable true
+            buildConfigField 'String', "ApiKey", API_KEY
+            resValue 'string', "api_key", API_KEY
         }
         release {
             debuggable false
@@ -26,6 +28,8 @@ android {
             versionNameSuffix '-RELEASE'
             // signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "ApiKey", API_KEY
+            resValue 'string', "api_key", API_KEY
         }
     }
     packagingOptions {
