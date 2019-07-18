@@ -3,6 +3,7 @@ package tech.fnplus.enrollme.app;
 import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.stetho.Stetho;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -29,7 +30,7 @@ public class AppController extends Application {
 
         // Check Build Config for debugging libraries
         if (BuildConfig.DEBUG) {
-
+            Stetho.initializeWithDefaults(this);
         } else {
             // Obtain the FirebaseAnalytics
             mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);

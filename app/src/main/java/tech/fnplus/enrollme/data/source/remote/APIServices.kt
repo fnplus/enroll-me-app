@@ -6,13 +6,15 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
+import tech.fnplus.enrollme.data.EventResponse
 import tech.fnplus.enrollme.data.EventValue
 
 
 interface APIServices {
 
-    @GET("geek-meetup-chennai")
-    fun loadEvents(): Call<HashMap<String, EventValue>>
+    @GET("geek-meetup-chennai/events")
+    fun loadEvents(@Query("key") key:String): Call<EventResponse>
 }
 
 object RetrofitClient {
